@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proposicion de Casminan</title>
+</head>
+<body>
+
+	<h1 style="color:#5F9EA0"><center>Proposicion de CASMINAN</center></h1>
+
+<style> 
+            body { 
+                background-image: url("https://i.pinimg.com/originals/54/f8/43/54f843d5e121dcd6e218223c4d3c7e7e.gif");
+                background-position: center 30%; 
+                background-size: cover;
+            } 
+
+            .p1 {
+
+            	text-align: center;
+            	font-size: 1.5rem;
+            	color:#F0FFFF;           	
+            }
+
+            .redondeado {
+			       background: silver;
+				   border: 1px solid #393939;
+				   border-radius: 5px 5px 5px 5px;
+				   color: #393939;
+				   font-size: 12px;
+				   padding: 5px;
+				   font-size: 15px;
+				   width: 20vw;
+				   margin-left : 30vw;
+				 }
+
+ 			.confondo {
+				   background: silver;
+				   border: 1px solid #393939;
+				   border-radius: 5px 5px 5px 5px;
+				   color: #393939;
+				   font-size: 15px;
+				   padding: 5px;
+				   width: 6vw;
+				   cursor: not-allowed;
+				 }
+
+			.suma {
+
+				   background: silver;
+				   border: 1px solid #393939;
+				   border-radius: 5px 5px 5px 5px;
+				   color: #393939;
+				   font-size: 15px;
+				   padding: 5px;
+				   width: 3vw;
+			}
+
+			.resultado {
+
+				margin-left : 22vw;
+				color: #F0FFFF;
+				font-size: 1.5rem;  
+
+			}
+
+			.boton {
+
+				  width: 8vw;
+				  margin-left : 25vw;
+				  background-color: #20B2AA;
+				  color: white;
+				  padding: 15px 25px;
+				  text-decoration: none;
+				  cursor: pointer;
+				  border: none;
+				  border-radius: 8px;
+				  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+
+			.droplist {
+
+				color: #F0FFFF;
+				font-size: 1.2rem;  
+			}
+
+            
+</style> 
+
+	
+	<p class="p1">
+	   Todo número primo terminado en 7 si se le suma el consecutivo de este, iniciando desde el 7, mas 5 o 7 segun sea el caso.</br> Tenemos como resultado un numero primo. Siempre y cuando los sumandos no tengan más de 2 números pares en los digitos.
+	</p>
+
+<div>
+		</br>
+		</br>
+		</br>
+		</br>
+<!-- <form style=" width: 50vw; margin-left : 20vw;"> -->
+
+	<input class="redondeado" name="" id="i1" placeholder="Escriba un numero primo terminado en 7"></input>
+
+	<span style="color:#F0FFFF">+</span>
+
+	<input disabled class="confondo" name="" id="i2" placeholder="Pulse enter"></input>
+
+	<span style="color:#F0FFFF">+</span>
+
+	<label class="droplist" for="7o5">Seleccione 5 ó 7</label>
+
+  	<select id="s1">
+	    <option value="5">5</option>
+	    <option value="7">7</option>
+  	</select>
+
+	</br>
+	</br>
+	</br>
+	</br>
+
+	<input class="boton" type="button" value="Calcular" id="b1" onclick="calcular()">
+
+
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	
+
+	<p class="resultado"><i>El resultado es: </i><span id="respuesta"></span></p>
+
+
+</div>
+
+
+<script type="text/javascript">
+	
+	var x = document.getElementById('i1');
+
+	x.addEventListener("change", function(){
+
+	var z = numerosPrimos(parseInt(x.value));
+
+	document.getElementById('i2').value = z
+
+	} 
+
+);
+
+
+
+function numerosPrimos(num){
+    if(num % 2 != 0){
+        for(let i = num + 10; i <= 3000; i = i + 10){
+            if (primo(i)) {
+    		var numerosPrimos = i;
+                break;
+			}
+        }
+        
+        return numerosPrimos;
+    }else {
+        alert("Es un número par");
+    }
+    
+}
+
+function primo(numero) {
+	
+	for (let i = 2; i < numero; i++) {
+	
+		if (numero % i === 0) {
+		return false;
+		}
+	
+	}
+	
+
+	return numero;
+}
+
+
+function calcular() {
+
+	var p = document.getElementById('i1').value;
+	var t = document.getElementById('i2').value;
+	var u = document.getElementById('s1').value;
+
+document.getElementById('respuesta').innerHTML= parseInt(p)+ parseInt(t)+ parseInt(u);
+
+}
+
+
+	
+</script>
+
+</body>
+</html>
+
